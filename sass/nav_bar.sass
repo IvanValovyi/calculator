@@ -1,0 +1,51 @@
+.nav_bar
+    width: 100%
+    margin-bottom: 25px
+    &, .regimes
+        display: flex
+        align-items: center
+        justify-content: space-between
+    .menu_btn
+        display: flex
+        align-items: center
+        position: relative
+        z-index: 3
+    .menu
+        display: flex
+        width: 100%
+        z-index: 2
+        position: absolute
+        height: 100%
+        top: 0
+        left: -100%
+        opacity: 0
+        transition: 0.5s
+        & .content
+            flex: 65
+            height: 100%
+            background: #dce4de
+        & .close
+            flex: 35
+            height: 100%
+            background: #00000000
+        &.active
+            left: 0%
+            opacity: 1
+    svg
+        fill: #a9afab
+        width: 30px
+    div
+        flex: 1
+    .light_mode div
+        display: flex
+        justify-content: end
+    .regimes
+        div
+            margin: 0 10px
+            padding: 7px 10px
+            transition: 0.5s
+            font-size: 18px
+            &.active
+                background: #018c90
+                color: white
+                border-radius: 10px

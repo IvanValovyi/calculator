@@ -1,0 +1,319 @@
+body {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+body, body * {
+  margin: 0;
+  padding: 0;
+}
+body #app.dark_light_mode .calculator {
+  background: black;
+  color: white;
+  box-shadow: 0 0 0 0;
+  padding: 30px;
+}
+body #app.dark_light_mode .regimes div.active {
+  color: #018c90;
+  background: white;
+}
+body #app.dark_light_mode .input_blok .input {
+  border-bottom: 1px solid white;
+}
+body #app.dark_light_mode .input_blok .input:focus::before {
+  background: white;
+}
+body #app.dark_light_mode .keyboard .button.erase {
+  background: #3c443a;
+}
+body #app.dark_light_mode .keyboard .button.action {
+  background: white;
+}
+
+.calculator {
+  position: relative;
+  transition: 0.5s;
+  box-shadow: 0 0 5px 10px #d6d4d4;
+  width: 400px;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media (max-width: 450px) {
+  .calculator {
+    justify-content: flex-end;
+    width: calc(100vw - 20px);
+    padding: 10px;
+    height: calc(100vh - 20px);
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .calculator .nav_bar {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: calc(100% - 20px);
+    padding: 0 10px;
+  }
+  .calculator .nav_bar .menu {
+    top: -10px;
+    height: 100vh;
+  }
+  .calculator .nav_bar .menu .content {
+    flex: 75;
+  }
+  .calculator .nav_bar .menu .close {
+    flex: 25;
+  }
+  .calculator .keyboard .button {
+    width: 70px;
+    height: 70px;
+  }
+
+  body #app.dark_light_mode .calculator {
+    padding: 10px;
+  }
+}
+@media (max-width: 380px) {
+  .calculator .keyboard .button {
+    width: 60px;
+    height: 60px;
+  }
+}
+.nav_bar {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.nav_bar, .nav_bar .regimes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav_bar .menu_btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+.nav_bar .menu {
+  display: flex;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  opacity: 0;
+  transition: 0.5s;
+}
+.nav_bar .menu .content {
+  flex: 65;
+  height: 100%;
+  background: #dce4de;
+}
+.nav_bar .menu .close {
+  flex: 35;
+  height: 100%;
+  background: #00000000;
+}
+.nav_bar .menu.active {
+  left: 0%;
+  opacity: 1;
+}
+.nav_bar svg {
+  fill: #a9afab;
+  width: 30px;
+}
+.nav_bar div {
+  flex: 1;
+}
+.nav_bar .light_mode div {
+  display: flex;
+  justify-content: end;
+}
+.nav_bar .regimes div {
+  margin: 0 10px;
+  padding: 7px 10px;
+  transition: 0.5s;
+  font-size: 18px;
+}
+.nav_bar .regimes div.active {
+  background: #018c90;
+  color: white;
+  border-radius: 10px;
+}
+
+.input_blok {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.input_blok .history {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  padding-right: 10px;
+  max-height: 50px;
+  overflow-y: scroll;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.input_blok .history p {
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+.input_blok ::-webkit-scrollbar {
+  width: 5px;
+}
+.input_blok ::-webkit-scrollbar-track {
+  background: #FFFFFF40;
+}
+.input_blok ::-webkit-scrollbar-thumb {
+  background: #b3a2a3;
+}
+.input_blok .input {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 7px;
+  margin-bottom: 25px;
+}
+.input_blok .input::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 30px;
+  background: #ffffff00;
+  animation: input 1s linear infinite;
+}
+.input_blok .input:focus::before {
+  background: #464545;
+}
+
+.keyboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.keyboard .button {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #a9afab;
+}
+.keyboard .button.erase {
+  font-weight: 900;
+}
+.keyboard .button.action {
+  color: #018c90;
+}
+
+@keyframes input {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.menu {
+  color: black;
+}
+.menu .content {
+  position: relative;
+}
+.menu h1 {
+  font-size: 24px;
+  font-weight: 400;
+  height: 30px;
+  padding: 15px 0;
+  position: absolute;
+  width: max-content;
+  right: 15px;
+}
+.menu .profile {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+.menu .profile::before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 59px;
+  background: black;
+}
+.menu .profile img {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 30px;
+}
+.menu .profile p.name {
+  font-size: 18px;
+  font-weight: 250;
+  margin-bottom: 5px;
+}
+.menu .profile p.date {
+  font-size: 12px;
+}
+.menu .technologies .list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+}
+.menu .technologies .subtitle {
+  margin: 10px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.menu .technologies .el {
+  flex: 1;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: white;
+  color: black;
+}
+.menu .technologies .el img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */

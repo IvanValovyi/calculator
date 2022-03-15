@@ -1,0 +1,26 @@
+.keyboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.keyboard .button {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #a9afab;
+}
+.keyboard .button.erase {
+  font-weight: 900;
+}
+.keyboard .button.action {
+  color: #018c90;
+}
+
+/*# sourceMappingURL=keyboard.css.map */

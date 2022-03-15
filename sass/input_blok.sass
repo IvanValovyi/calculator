@@ -1,0 +1,52 @@
+.input_blok
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-direction: column
+    width: 100%
+    .history
+        display: flex
+        align-items: flex-end
+        justify-content: flex-start
+        flex-direction: column-reverse
+        padding-right: 10px
+        max-height: 50px
+        overflow-y: scroll
+        width: 100%
+        margin-bottom: 25px
+        p
+            margin-top:10px
+            font-size: 20px
+            letter-spacing: 5px
+    ::-webkit-scrollbar 
+        width: 5px
+    ::-webkit-scrollbar-track 
+        background: #FFFFFF40
+    ::-webkit-scrollbar-thumb 
+        background: #b3a2a3
+
+    .input
+        position: relative
+        height: 50px
+        width: 100%
+        border-bottom: 1px solid black
+        font-size: 36px
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        letter-spacing: 7px
+        margin-bottom: 25px
+        &::before
+            content: ''
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            width: 1px
+            height: 30px
+            background: #ffffff00
+            animation: input 1s linear infinite
+        &:focus
+            &::before
+                background: #464545
+            
